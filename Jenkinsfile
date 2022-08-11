@@ -5,7 +5,8 @@ pipeline {
         timeout(time: 10, unit: 'MINUTES')
         timestamps()  // Timestamper Plugin
         disableConcurrentBuilds()
-   tools {
+    }
+    tools {
         jdk 'jdk11'
         maven 'maven36'
     }
