@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -V -U -e clean verify -Dsurefire.useFile=false -DargLine="-Djdk.net.URLClassPath.disableClassPathURLCheck=true"'
+//                 sh 'mvn -B -V -U -e clean verify -Dsurefire.useFile=false -DargLine="-Djdk.net.URLClassPath.disableClassPathURLCheck=true"'
                 sshagent(['artifact-ssh']) {  // SSH Agent Plugin, artifact-ssh references the SSH credentials
                     sh 'ssh-keyscan -p 2222 openssh-server > ~/.ssh/known_hosts'
                     sh 'ssh -p 2222 puzzler@openssh-server "whoami"'
